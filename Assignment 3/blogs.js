@@ -12,6 +12,7 @@ const descriptionDOM = document.getElementById("description");
 const contentDOM = document.getElementById("content");
 const aboutAuthorDOM = document.getElementById("aboutAuthor");
 
+const FeaturedBlogs = document.getElementById("blogs");
 const RecentPostId = document.getElementById("recentposts");
 const BlogPost = (Post) => {
   console.log(Post);
@@ -125,33 +126,24 @@ const TechBlogs = (res) => {
       console.log(response.posts);
       response.posts.map((res2) => {
         main.innerHTML += `
-            <div
-                class="p-4 p-md-5 mb-4 rounded text-body-emphasis bg-body-secondary"
-                style="
-                  display: flex;
-                  flex-direction: row;
-                  justify-content: space-between;
-                "
-              >
-                <div class="col-lg-6 px-0">
-                  <h1 class="display-4 fst-italic title">
-                    ${res2.title}
-                  </h1>
-                  <p class="lead my-3 description">
-                    ${res2.description}
-                  </p>
-                  <p class="lead mb-0">
-                    <a href="#" class="text-body-emphasis fw-bold" onclick="helloWOrld('Technology',${res2.id})"
-                      >Continue reading...</a
-                    >
-                  </p>
-                </div>
-                <div class="col-auto d-none d-lg-block" style="padding:0">
-              
-                 <img src="${res2.img}"   width="350"
-                 height="350"/>
-                </div>
-              </div> 
+        <div class="col-md-6 w-100">
+        <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+          <div class="col p-4 d-flex flex-column position-static ">
+            <strong class="d-inline-block mb-2 text-primary-emphasis">Technology</strong>
+            <h3 class="mb-2"> ${res2.title}</h3>
+            <div class="mb-2 text-body-secondary">${res2.date}</div>
+            <p class="card-text mb-3"> ${res2.description}</p>
+            <a href="#" class="icon-link gap-1 icon-link-hover stretched-link" onclick="helloWOrld('Technology',${res2.id})">
+              Continue reading
+              <svg class="bi"><use xlink:href="#chevron-right"></use></svg>
+            </a>
+          </div>
+          <div class="col-auto d-none d-lg-block w-40" style=" width:30%; background-image: url(${res2.img}); background-size:cover" >
+            
+          </div>
+        </div>
+      </div>
+      
             `;
       });
     }
@@ -171,32 +163,23 @@ const CricketBlogs = (res) => {
       console.log(response.posts);
       response.posts.map((res2) => {
         main.innerHTML += `
-            <div
-                class="p-4 p-md-5 mb-4 rounded text-body-emphasis bg-body-secondary"
-                style="
-                  display: flex;
-                  flex-direction: row;
-                  justify-content: space-between;
-                "
-              >
-                <div class="col-lg-6 px-0">
-                  <h1 class="display-4 fst-italic title">
-                    ${res2.title}
-                  </h1>
-                  <p class="lead my-3 description">
-                    ${res2.description}
-                  </p>
-                  <p class="lead mb-0">
-                    <a href="#" class="text-body-emphasis fw-bold" onclick="helloWOrld('World',${res2.id})"
-                      >Continue reading...</a
-                    >
-                  </p>
-                </div>
-                <div class="col-auto d-none d-lg-block">
-                <img src="${res2.img}"   width="350"
-                height="350"/>
-                </div>
-              </div>
+        <div class="col-md-6 w-100">
+        <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+          <div class="col p-4 d-flex flex-column position-static ">
+            <strong class="d-inline-block mb-2 text-primary-emphasis">World</strong>
+            <h3 class="mb-2"> ${res2.title}</h3>
+            <div class="mb-2 text-body-secondary">${res2.date}</div>
+            <p class="card-text mb-3"> ${res2.description}</p>
+            <a href="#" class="icon-link gap-1 icon-link-hover stretched-link" onclick="helloWOrld('World',${res2.id})">
+              Continue reading
+              <svg class="bi"><use xlink:href="#chevron-right"></use></svg>
+            </a>
+          </div>
+          <div class="col-auto d-none d-lg-block w-40" style=" width:30%; background-image: url(${res2.img}); background-size:cover" >
+            
+          </div>
+        </div>
+      </div>
             `;
       });
     }
@@ -216,32 +199,23 @@ const ScienceBlogs = (res) => {
       console.log(response.posts);
       response.posts.map((res2) => {
         main.innerHTML += `
-            <div
-                class="p-4 p-md-5 mb-4 rounded text-body-emphasis bg-body-secondary"
-                style="
-                  display: flex;
-                  flex-direction: row;
-                  justify-content: space-between;
-                "
-              >
-                <div class="col-lg-6 px-0">
-                  <h1 class="display-4 fst-italic title">
-                    ${res2.title}
-                  </h1>
-                  <p class="lead my-3 description">
-                    ${res2.description}
-                  </p>
-                  <p class="lead mb-0">
-                    <a href="#" class="text-body-emphasis fw-bold" onclick="helloWOrld('Science',${res2.id})"
-                      >Continue reading...</a
-                    >
-                  </p>
-                </div>
-                <div class="col-auto d-none d-lg-block">
-                <img src="${res2.img}"   width="350"
-                height="350"/>
-                </div>
-              </div> 
+        <div class="col-md-6 w-100">
+        <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+          <div class="col p-4 d-flex flex-column position-static ">
+            <strong class="d-inline-block mb-2 text-primary-emphasis">Science</strong>
+            <h3 class="mb-2"> ${res2.title}</h3>
+            <div class="mb-2 text-body-secondary">${res2.date}</div>
+            <p class="card-text mb-3"> ${res2.description}</p>
+            <a href="#" class="icon-link gap-1 icon-link-hover stretched-link" onclick="helloWOrld('Science',${res2.id})">
+              Continue reading
+              <svg class="bi"><use xlink:href="#chevron-right"></use></svg>
+            </a>
+          </div>
+          <div class="col-auto d-none d-lg-block w-40" style=" width:30%; background-image: url(${res2.img}); background-size:cover" >
+            
+          </div>
+        </div>
+      </div>
             `;
       });
     }
@@ -261,32 +235,23 @@ const TravelBlogs = (res) => {
       console.log(response.posts);
       response.posts.map((res2) => {
         main.innerHTML += `
-            <div
-                class="p-4 p-md-5 mb-4 rounded text-body-emphasis bg-body-secondary"
-                style="
-                  display: flex;
-                  flex-direction: row;
-                  justify-content: space-between;
-                "
-              >
-                <div class="col-lg-6 px-0">
-                  <h1 class="display-4 fst-italic title">
-                    ${res2.title}
-                  </h1>
-                  <p class="lead my-3 description">
-                    ${res2.description}
-                  </p>
-                  <p class="lead mb-0">
-                    <a href="#" class="text-body-emphasis fw-bold" onclick="helloWOrld('Travel',${res2.id})"
-                      >Continue reading...</a
-                    >
-                  </p>
-                </div>
-                <div class="col-auto d-none d-lg-block">
-                <img src="${res2.img}"   width="350"
-                height="350"/>
-                </div>
-              </div> 
+        <div class="col-md-6 w-100">
+        <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+          <div class="col p-4 d-flex flex-column position-static ">
+            <strong class="d-inline-block mb-2 text-primary-emphasis">Travel</strong>
+            <h3 class="mb-2"> ${res2.title}</h3>
+            <div class="mb-2 text-body-secondary">${res2.date}</div>
+            <p class="card-text mb-3"> ${res2.description}</p>
+            <a href="#" class="icon-link gap-1 icon-link-hover stretched-link" onclick="helloWOrld('Travel',${res2.id})">
+              Continue reading
+              <svg class="bi"><use xlink:href="#chevron-right"></use></svg>
+            </a>
+          </div>
+          <div class="col-auto d-none d-lg-block w-40" style=" width:30%; background-image: url(${res2.img}); background-size:cover" >
+            
+          </div>
+        </div>
+      </div>
             `;
       });
     }
@@ -337,6 +302,7 @@ const helloWOrld = async (category, id) => {
   // END
 };
 
+const RenderFeaturedBlogs = () => {};
 const toggleBlogSeperateAndBlogs = () => {
   main1.classList.remove("hidden");
   main2.classList.add("hidden");

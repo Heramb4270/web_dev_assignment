@@ -1,0 +1,42 @@
+.container2 {
+  width: 100%;
+  max-width: 800px;
+  margin: 100px auto;
+  text-align: center;
+}
+
+.fancy-title {
+  font-size: 3em;
+  background: linear-gradient(45deg, #ff00cc, #3333ff);
+  -webkit-text-fill-color: transparent;
+}
+
+.container input {
+  text-align: center;
+  width: 25rem;
+  padding: 1.5rem;
+}
+.container h2 {
+  text-align: center;
+}
+.in_but {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.title {
+  font-size: 3em;
+  text-align: center;
+
+  margin-top: 3rem;
+  margin-bottom: 6rem;
+}
+.todolist {
+  display: flex;
+  margin: 3rem;
+  padding: 1rem;
+  justify-content: space-between;
+}
+.addline {
+  text-decoration: line-through;
+}

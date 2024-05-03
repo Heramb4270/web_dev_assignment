@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>File Operations</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+      }
+      label {
+        display: block;
+        margin-bottom: 5px;
+      }
+      input[type="text"] {
+        width: 300px;
+        padding: 5px;
+        margin-bottom: 10px;
+      }
+      button {
+        margin-right: 10px;
+      }
+      pre {
+        background-color: #f4f4f4;
+        padding: 10px;
+        overflow: auto;
+        max-height: 200px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>File Operations</h1>
+    <label for="filePath">File Path:</label>
+    <input type="text" id="filePath" placeholder="Enter file path" />
+
+    <label for="fileContent">File Content:</label>
+    <textarea
+      id="fileContent"
+      rows="5"
+      placeholder="Enter file content"
+    ></textarea>
+
+    <button onclick="openFile()">Open</button>
+    <button onclick="readFile()">Read</button>
+    <button onclick="writeFile()">Write</button>
+    <button onclick="appendFile()">Append</button>
+    <button onclick="copyFile()">Copy</button>
+    <button onclick="moveFile()">Move</button>
+    <button onclick="deleteFile()">Delete</button>
+    <button onclick="renameFile()">Rename</button>
+
+    <h2>Output:</h2>
+    <pre id="output"></pre>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+      const socket = io();
+
+      // File operation functions
+      function openFile() {
+        const filePath = document.getElementById("filePath").value;
+        socket.emit("openFile", filePath);
+      }
+
+      function readFile() {
+        const filePath = document.getElementById("filePath").value;
+        socket.emit("readFile", filePath);
+      }
+
+      function writeFile() {
+        const filePath = document.getElementById("filePath").value;
+        const fileContent = document.getElementById("fileContent").value;
+        socket.emit("writeFile", { filePath, fileContent });
+      }
+
+      function appendFile() {
+        const filePath = document.getElementById("filePath").value;
+        const fileContent = document.getElementById("fileContent").value;
+        socket.emit("appendFile", { filePath, fileContent });
+      }
+
+      function copyFile() {
+        const filePath = document.getElementById("filePath").value;
+        const newFilePath = prompt("Enter the new file path:");
+        socket.emit("copyFile", { filePath, newFilePath });
+      }
+
+      function moveFile() {
+        const filePath = document.getElementById("filePath").value;
+        const newFilePath = prompt("Enter the new file path:");
+        socket.emit("moveFile", { filePath, newFilePath });
+      }
+
+      function deleteFile() {
+        const filePath = document.getElementById("filePath").value;
+        socket.emit("deleteFile", filePath);
+      }
+
+      function renameFile() {
+        const filePath = document.getElementById("filePath").value;
+        const newFilePath = prompt("Enter the new file path:");
+        socket.emit("renameFile", { filePath, newFilePath });
+      }
+
+      // Handle server responses
+      socket.on("fileOperationResult", (data) => {
+        document.getElementById("output").textContent = data.result;
+      });
+    </script>
+  </body>
+</html>
